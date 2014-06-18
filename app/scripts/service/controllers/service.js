@@ -4,7 +4,8 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
     $scope.service = {
         id: currentService.id,
         name: currentService.name,
-        responses: currentService.responses
+        responses: currentService.responses,
+        pathVariables: currentService.params
     };
 
     // If there are only one method with scenarios, display it by default
@@ -13,7 +14,17 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
     }
 
     $scope.currentMethod = $routeParams.method;
-    $scope.newScenario = {};
+    $scope.newScenario = {
+        // TODO
+        // We need to do this as the backend returns a key:value par with name and type. We transform it to a array so we can
+        // add the value to it. We need to review if the backend should return this in the format the frontend wants
+        pathVariables: _.map($scope.service.pathVariables, function(variableType, variableName){
+            return {
+                name: variableName,
+                type: variableType
+            }
+        })
+    };
 
     $scope.changeCurrentMethod = function(method){
         // var newValue = null;
@@ -39,7 +50,7 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
 
         $http({
             method: 'POST',
-            url: 'http://localhost:3000/services/'+$scope.id+'/scenarios',
+            url: 'http://localhost:3000/services/'+$scope.service.id+'/scenarios',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -47,7 +58,8 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
                 service: $scope.service.id,
                 method: $scope.newScenario.method,
                 name: $scope.newScenario.name,
-                response: $scope.newScenario.response
+                response: $scope.newScenario.response,
+                params: $scope.newScenario.pathVariables
             }
         })
         .success(function(response){

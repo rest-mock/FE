@@ -37,6 +37,16 @@
                     <textarea class="form-control" type="text" ng-model="newScenario.response" id="scenarioResponse"></textarea>
                 </div>
 
+                <div class="form-group" ng-if="service.pathVariables">
+                    <h3>Path variables service</h3>
+
+                    <div class="form-group" ng-repeat="variable in newScenario.pathVariables">
+                        <label for="">{{variable.name}}</label> <span>(type: {{variable.type}})</span>
+                        <input class="form-control" type="text" ng-model="variable.value">
+                    </div>
+
+                </div>
+
                 <div class="form-group">
                     <button type="button" class="btn btn-success" ng-click="addScenario()">Save</button>
                 </div>
