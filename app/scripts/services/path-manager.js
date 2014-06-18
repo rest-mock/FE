@@ -33,10 +33,10 @@ angular.module('Services').factory('PathManagerFactory', function () {
             });
 
             return variables;
-        }
+        };
     }
 
     return {
         createInstance: createInstance
-    }
+    };
 });

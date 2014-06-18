@@ -43,7 +43,7 @@ angular.module('CreateService').controller('CreateServiceCtrl', function ($scope
                     return variable;
                 }
 
-                return $scope.service.pathVariables[index]
+                return $scope.service.pathVariables[index];
             });
         }, 0);
     };
@@ -63,7 +63,8 @@ angular.module('CreateService').controller('CreateServiceCtrl', function ($scope
             data: {
                 path: $scope.service.path,
                 name: $scope.service.name,
-                mode: $scope.service.mode
+                mode: $scope.service.mode,
+                params: $scope.service.pathVariables
             }
         }).
         success(function(response){
