@@ -1,0 +1,50 @@
+{
+  "feature": [
+    {
+      "name": "Service",
+      "value": "service"
+    },
+    {
+      "name": "Create service",
+      "value": "create-service"
+    }
+  ],
+  "controller": [
+    {
+      "name": "Service",
+      "value": "service"
+    },
+    {
+      "name": "Create service",
+      "value": "create-service"
+    }
+  ],
+  "filter": [],
+  "directive": [
+    {
+      "name": "Services list",
+      "value": "services-list"
+    }
+  ],
+  "service": [],
+  "factory": [
+    {
+      "name": "Path manager",
+      "value": "path-manager"
+    }
+  ],
+  "provider": [],
+  "value": [],
+  "constant": [],
+  "view": [
+    {
+      "name": "Service",
+      "value": "service"
+    },
+    {
+      "name": "Create service",
+      "value": "create-service"
+    }
+  ],
+  "sass": []
+}

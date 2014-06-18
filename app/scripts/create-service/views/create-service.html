@@ -1,0 +1,57 @@
+<div>
+    <form name="createServiceForm" novalidate role="form">
+        
+        <fieldset>
+            <h1>Service</h1>
+            <div class="form-group">
+                <label for="serviceName">Name</label>
+                <input class="form-control" type="text" ng-model="service.name" id="serviceName">
+            </div>
+
+            <div class="form-group">
+                <label for="servicePath">Path</label>
+                <input class="form-control" type="text" ng-model="service.path" id="servicePath">
+            </div>
+
+            
+            <div class="form-group">
+                <div>
+                    <label for="">Mode</label>
+                </div>
+                <div class="btn-group">
+                    <label class="btn btn-default" ng-disabled="variablesInPath" ng-model="service.mode" btn-radio="'static'">Static</label>
+                    <label class="btn btn-default" ng-model="service.mode" btn-radio="'dynamic'">Dynamic</label>
+                </div>
+
+                <div class="bs-callout bs-callout-info" ng-show="variablesInPath">
+                    <span>The method has been selected as <i>dynamic</i> since the path has variables. If you want to change it to <i>static</i>, remove the variables from the path.</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label for="">Varaibles types</label>
+                </div>
+
+                <div ng-repeat="variable in service.pathVariables">
+                    <p>{{variable.name}}</p>
+                    <div class="btn-group">
+                        <label class="btn btn-default" ng-model="variable.type" btn-radio="'numeric'">Numeric</label>
+                        <label class="btn btn-default" ng-model="variable.type" btn-radio="'letter'">Letter</label>
+                        <label class="btn btn-default" ng-model="variable.type" btn-radio="'alpha'">Alpha</label>
+                        <label class="btn btn-default" ng-model="variable.type" btn-radio="'regexp'">Regexp</label>
+                    </div>
+                    <div ng-show="variable.type === 'regexp'">
+                        <label for="">Enter your regular expresison between slashes and add the flags if neccessary</label>
+                        <input type="text" class="form-control" ng-model="variable.value">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-success" ng-click="saveService()">Save</button>
+            </div>
+        </fieldset>
+
+    </form>
+</div>

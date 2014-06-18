@@ -1,0 +1,10 @@
+<div class="services-list services-list-directive">
+    <ul class="services-list-container">
+        <li ng-repeat="service in services">
+            <a href="#/service/{{service.id}}">{{service.name}}</a>
+        </li>
+        <li>
+            <p><a href="#/create-service">Create service</a></p>
+        </li>
+    </ul>
+</div>

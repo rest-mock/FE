@@ -1,0 +1,11 @@
+{
+    "development": {
+        "foo": "developmentFoo"
+    },
+    "production": {
+        "foo":"productionFoo"
+    },
+    "staging": {
+        "foo":"stagingFoo"
+    }
+}
