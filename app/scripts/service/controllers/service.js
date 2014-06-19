@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope, $http, $routeParams, $location, currentService) {
+angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope, $routeParams, $location, ScenariosResource, currentService) {
     $scope.service = {
         id: currentService.id,
         name: currentService.name,
@@ -40,21 +40,15 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
             return;
         }
 
-        $http({
-            method: 'POST',
-            url: 'http://localhost:3000/services/'+$scope.service.id+'/scenarios',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data: {
-                service: $scope.service.id,
-                method: $scope.newScenario.method,
-                name: $scope.newScenario.name,
-                response: $scope.newScenario.response,
-                params: $scope.newScenario.pathParams
-            }
-        })
-        .success(function(response){
+        ScenariosResource.save({
+            serviceId: $scope.service.id
+        }, {
+            service: $scope.service.id,
+            method: $scope.newScenario.method,
+            name: $scope.newScenario.name,
+            response: $scope.newScenario.response,
+            params: $scope.newScenario.pathParams
+        }, function(response){
             //update scope with the new sceario so the ui shows it.
             if( !$scope.service.responses[ $scope.newScenario.method ] ){
                 $scope.service.responses[ $scope.newScenario.method ] = [];
@@ -67,10 +61,9 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
             }
 
             $scope.newScenario = {};
-        })
-        .error(function(error){
+        }, function(response){
             window.alert('there was an error');
-            console.log('error', error);
+            console.log('error', response);
         });
     };
 });

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('CreateService').controller('CreateServiceCtrl', function ($scope, $timeout, $routeParams, $location, $http, PathManagerFactory) {
+angular.module('CreateService').controller('CreateServiceCtrl', function ($scope, $timeout, $routeParams, $location, ServicesResource, PathManagerFactory) {
     $scope.service = {
         pathParams: []
     };
@@ -49,23 +49,17 @@ angular.module('CreateService').controller('CreateServiceCtrl', function ($scope
             return;
         }
 
-        $http({
-            method: 'POST',
-            url: 'http://localhost:3000/services',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data: {
-                path: $scope.service.path,
-                name: $scope.service.name,
-                mode: $scope.service.mode,
-                params: $scope.service.pathParams
-            }
-        }).
-        success(function(response){
+        ServicesResource.save({
+            path: $scope.service.path,
+            name: $scope.service.name,
+            mode: $scope.service.mode,
+            params: $scope.service.pathParams
+        }, function(response){
             $scope.service = {};
 
             $location.path('/service/'+response.id);
+        }, function(response){
+            console.log('error', response);
         });
     };
 

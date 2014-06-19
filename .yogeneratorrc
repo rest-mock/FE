@@ -31,6 +31,14 @@
     {
       "name": "Path manager",
       "value": "path-manager"
+    },
+    {
+      "name": "Services resource",
+      "value": "services-resource"
+    },
+    {
+      "name": "Scenarios resource",
+      "value": "scenarios-resource"
     }
   ],
   "provider": [],

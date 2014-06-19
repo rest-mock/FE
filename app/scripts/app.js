@@ -32,20 +32,14 @@ angular.module('RESTMock', _mainModules )
                 resolve: {
                     // We cannot use $routeParams here. As the route has not been resolved yet
                     // that object is not populated yet.
-                    currentService: function($route, $http, $q){
+                    currentService: function($route, $q, ServicesResource){
                         var deferred = $q.defer();
 
-                        $http({
-                            method: 'GET',
-                            url: 'http://localhost:3000/services',
-                            params: {
-                                serviceId: $route.current.params.serviceId
-                            }
-                        })
-                        .success(function(response){
-                            deferred.resolve(response.services[0]);
-                        })
-                        .error(function(response){
+                        ServicesResource.get({
+                            serviceId: $route.current.params.serviceId
+                        }, function(response){
+                            deferred.resolve(response);
+                        }, function(response){
                             deferred.reject(response);
                         });
 
