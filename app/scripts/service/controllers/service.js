@@ -15,15 +15,7 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
 
     $scope.currentMethod = $routeParams.method;
     $scope.newScenario = {
-        // TODO
-        // We need to do this as the backend returns a key:value par with name and type. We transform it to a array so we can
-        // add the value to it. We need to review if the backend should return this in the format the frontend wants
-        pathVariables: _.map($scope.service.pathVariables, function(variableType, variableName){
-            return {
-                name: variableName,
-                type: variableType
-            };
-        })
+        pathVariables: $scope.service.pathVariables
     };
 
     $scope.changeCurrentMethod = function(method){

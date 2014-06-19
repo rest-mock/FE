@@ -27,7 +27,7 @@ angular.module('Services').factory('PathManagerFactory', function () {
                 if( segment.charAt(0) === ':' ){
                     variables.push({
                         raw: segment,
-                        name: segment.slice(1)
+                        key: segment.slice(1)
                     });
                 }
             });
