@@ -22,7 +22,7 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
             return {
                 name: variableName,
                 type: variableType
-            }
+            };
         })
     };
 
