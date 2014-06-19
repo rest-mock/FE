@@ -9,11 +9,6 @@ angular.module('CreateService').controller('CreateServiceCtrl', function ($scope
         return $scope.service.path;
     });
 
-    // $scope.$watch('service.pathParams', function(){
-    //     console.log('%cWHAT PATH VAR','background: orange;');
-    //     console.log($scope.service.pathParams);
-    // }, true);
-
     $scope.handlePathChange = function(){
         if( !$scope.service.path ){
             $scope.service.pathParams = [];
