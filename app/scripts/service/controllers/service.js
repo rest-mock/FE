@@ -5,7 +5,7 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
         id: currentService.id,
         name: currentService.name,
         responses: currentService.responses,
-        pathVariables: currentService.params
+        pathParams: currentService.params
     };
 
     // If there are only one method with scenarios, display it by default
@@ -15,7 +15,7 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
 
     $scope.currentMethod = $routeParams.method;
     $scope.newScenario = {
-        pathVariables: $scope.service.pathVariables
+        pathParams: $scope.service.pathParams
     };
 
     $scope.changeCurrentMethod = function(method){
@@ -51,7 +51,7 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
                 method: $scope.newScenario.method,
                 name: $scope.newScenario.name,
                 response: $scope.newScenario.response,
-                params: $scope.newScenario.pathVariables
+                params: $scope.newScenario.pathParams
             }
         })
         .success(function(response){

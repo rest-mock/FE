@@ -8,31 +8,27 @@ angular.module('Services').factory('PathManagerFactory', function () {
     function PathManagerInstance(pathGetter){
         this.path = pathGetter;
 
-        // this.getPath = function(){
-        //     return this.path();
-        // };
-
-        this.hasVariables = function(){
+        this.hasParams = function(){
             var path = this.path();
 
             return path.match(/\/:\w/);
         };
 
-        this.getVariables = function(){
+        this.getParams = function(){
             var path = this.path();
-            var variables = [];
+            var params = [];
 
             var segments = path.split('/');
             _.each(segments, function(segment){
                 if( segment.charAt(0) === ':' ){
-                    variables.push({
+                    params.push({
                         raw: segment,
                         key: segment.slice(1)
                     });
                 }
             });
 
-            return variables;
+            return params;
         };
     }
 

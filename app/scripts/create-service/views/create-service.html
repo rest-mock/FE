@@ -19,11 +19,11 @@
                     <label for="">Mode</label>
                 </div>
                 <div class="btn-group">
-                    <label class="btn btn-default" ng-disabled="variablesInPath" ng-model="service.mode" btn-radio="'static'">Static</label>
+                    <label class="btn btn-default" ng-disabled="paramsInPath" ng-model="service.mode" btn-radio="'static'">Static</label>
                     <label class="btn btn-default" ng-model="service.mode" btn-radio="'dynamic'">Dynamic</label>
                 </div>
 
-                <div class="bs-callout bs-callout-info" ng-show="variablesInPath">
+                <div class="bs-callout bs-callout-info" ng-show="paramsInPath">
                     <span>The method has been selected as <i>dynamic</i> since the path has variables. If you want to change it to <i>static</i>, remove the variables from the path.</span>
                 </div>
             </div>
@@ -33,17 +33,17 @@
                     <label for="">Varaibles types</label>
                 </div>
 
-                <div ng-repeat="variable in service.pathVariables">
-                    <p>{{variable.key}}</p>
+                <div ng-repeat="param in service.pathParams">
+                    <p>{{param.key}}</p>
                     <div class="btn-group">
-                        <label class="btn btn-default" ng-model="variable.type" btn-radio="'numeric'">Numeric</label>
-                        <label class="btn btn-default" ng-model="variable.type" btn-radio="'letter'">Letter</label>
-                        <label class="btn btn-default" ng-model="variable.type" btn-radio="'alpha'">Alpha</label>
-                        <label class="btn btn-default" ng-model="variable.type" btn-radio="'regexp'">Regexp</label>
+                        <label class="btn btn-default" ng-model="param.type" btn-radio="'numeric'">Numeric</label>
+                        <label class="btn btn-default" ng-model="param.type" btn-radio="'letter'">Letter</label>
+                        <label class="btn btn-default" ng-model="param.type" btn-radio="'alpha'">Alpha</label>
+                        <label class="btn btn-default" ng-model="param.type" btn-radio="'regexp'">Regexp</label>
                     </div>
-                    <div ng-show="variable.type === 'regexp'">
+                    <div ng-show="param.type === 'regexp'">
                         <label for="">Enter your regular expresison between slashes and add the flags if neccessary</label>
-                        <input type="text" class="form-control" ng-model="variable.value">
+                        <input type="text" class="form-control" ng-model="param.value">
                     </div>
                 </div>
             </div>
