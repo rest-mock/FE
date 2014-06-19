@@ -1,6 +1,12 @@
 'use strict';
 
 angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope, $routeParams, $location, ScenariosResource, currentService) {
+    function createNewScenarioObject(){
+        return {
+            pathParams: angular.copy($scope.service.pathParams)
+        };
+    }
+
     $scope.service = {
         id: currentService.id,
         name: currentService.name,
@@ -14,9 +20,7 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
     }
 
     $scope.currentMethod = $routeParams.method;
-    $scope.newScenario = {
-        pathParams: $scope.service.pathParams
-    };
+    $scope.newScenario = createNewScenarioObject();
 
     $scope.changeCurrentMethod = function(method){
         // var newValue = null;
@@ -60,7 +64,7 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
                 $scope.changeCurrentMethod($scope.newScenario.method);
             }
 
-            $scope.newScenario = {};
+            $scope.newScenario = createNewScenarioObject();
         }, function(response){
             window.alert('there was an error');
             console.log('error', response);
