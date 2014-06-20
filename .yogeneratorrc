@@ -24,6 +24,22 @@
     {
       "name": "Services list",
       "value": "services-list"
+    },
+    {
+      "name": "Blur focus",
+      "value": "blur-focus"
+    },
+    {
+      "name": "Show form validation message",
+      "value": "show-form-validation-message"
+    },
+    {
+      "name": "Form validation messages",
+      "value": "form-validation-messages"
+    },
+    {
+      "name": "Validate path",
+      "value": "validate-path"
     }
   ],
   "service": [],

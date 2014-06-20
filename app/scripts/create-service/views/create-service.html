@@ -1,18 +1,36 @@
 <div>
     <form name="createServiceForm" novalidate role="form">
-        
+        <pre>{{createServiceForm | json}}</pre>
         <fieldset>
             <h1>Service</h1>
-            <div class="form-group">
-                <label for="serviceName">Name</label>
-                <input class="form-control" type="text" ng-model="service.name" id="serviceName">
+            <div class="form-group" ng-class="{'has-error': createServiceForm.serviceName.showFormValidationMessage}">
+                <label class="control-label" for="serviceName">Name</label>
+                <input 
+                    placeholder="My awesome service"
+                    class="form-control" 
+                    type="text" 
+                    name="serviceName" 
+                    ng-model="service.name" 
+                    id="serviceName"
+                    ng-required="true"
+                >
+                <form-validation-messages controller="createServiceForm.serviceName"></form-validation-messages>
             </div>
 
-            <div class="form-group">
-                <label for="servicePath">Path</label>
-                <input class="form-control" type="text" ng-model="service.path" id="servicePath">
+            <div class="form-group" ng-class="{'has-error': createServiceForm.servicePath.showFormValidationMessage}">
+                <label class="control-label" for="servicePath">Path</label>
+                <input 
+                    placeholder="my/awesome/service/:serviceId"
+                    class="form-control" 
+                    type="text" 
+                    name="servicePath" 
+                    ng-model="service.path" 
+                    id="servicePath"
+                    ng-required="true"
+                    validate-path
+                >
+                <form-validation-messages controller="createServiceForm.servicePath"></form-validation-messages>
             </div>
-
             
             <div class="form-group">
                 <div>

@@ -4,6 +4,17 @@ body {
     color: #444;
 }
 
+.help-block{
+  
+  &.message-block{
+    font-size: .8em !important;
+  }
+
+  &.error-message-block{
+    color: #a94442 !important;
+  }
+}
+
 /* Side notes for calling out things
 -------------------------------------------------- */
  
