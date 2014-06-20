@@ -39,6 +39,10 @@
     {
       "name": "Scenarios resource",
       "value": "scenarios-resource"
+    },
+    {
+      "name": "Config",
+      "value": "config"
     }
   ],
   "provider": [],
