@@ -34,7 +34,10 @@ angular.module('Directives').directive('validatePath', function ($timeout) {
                     if( validPath && value.match(/\:$/) ){ validPath = false; }
 
                     // (4)
-                    // if( validPath ){}
+                    // In order to that every colon has a slash right before it, we will
+                    // reverse the string and valdiate that every colon is followed by a slash
+                    var reverseValue = value.split("").reverse().join("");
+                    if( validPath && reverseValue.match(/(:[^\/])/) ){ validPath = false; }
 
                     // (5)
                     if( validPath && value.match(/\/{2,}/) ){ validPath = false; }
