@@ -36,6 +36,12 @@ angular.module('Directives').directive('validatePath', function ($timeout) {
                     // (4)
                     // if( validPath ){}
 
+                    // (5)
+                    if( validPath && value.match(/\/{2,}/) ){ validPath = false; }
+
+                    // (6)
+                    if( validPath && value.match(/(:\/)/) ){ validPath = false; }
+
                     ctrl.$setValidity('path', validPath);
                 }, 0);
             });
