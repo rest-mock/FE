@@ -40,7 +40,6 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
         }
 
         if( !validResponse ){
-            window.alert('Response is not a valid json');
             return;
         }
 

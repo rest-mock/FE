@@ -21,7 +21,8 @@ angular.module('Services').factory('CONFIG', function () {
         ERROR_MESSAGES:{
             DEFAULT:{
                 REQUIRED: 'It can\'t be empty.',
-                PATH: 'The path format is incorrect.'
+                PATH: 'The path format is incorrect.',
+                JSON: 'The JSON is not valid.'
             },
             CUSTOM:{}
         }

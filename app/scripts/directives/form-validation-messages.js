@@ -10,10 +10,10 @@ angular.module('Directives').directive('formValidationMessages', function (CONFI
         link: function(){
         },
         controller: function($scope){
-            $scope.$watch('controller.showFormValidationMessage', function(showMessage){
+            $scope.$watch('controller', function(){
                 $scope.errors = [];
 
-                if( !showMessage ){return;}
+                if( !$scope.controller.showFormValidationMessage ){return;}
 
                 _.each($scope.controller.$error, function(validity, key){
                     if( !validity ){ return; }

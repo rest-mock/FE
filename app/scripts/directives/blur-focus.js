@@ -45,3 +45,4 @@ var blurFocusDirective = function () {
 
 angular.module('Directives').directive('input', blurFocusDirective);
 angular.module('Directives').directive('select', blurFocusDirective);
+angular.module('Directives').directive('textarea', blurFocusDirective);

@@ -40,6 +40,10 @@
     {
       "name": "Validate path",
       "value": "validate-path"
+    },
+    {
+      "name": "Validate json",
+      "value": "validate-json"
     }
   ],
   "service": [],

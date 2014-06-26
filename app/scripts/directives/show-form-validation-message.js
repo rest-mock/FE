@@ -9,7 +9,7 @@
  * @returns
  */
 
-angular.module('Directives').directive('input', function($timeout){
+var showValidationFormDirective = function($timeout){
     return {
         restrict: 'E',
         require: '?ngModel',
@@ -43,5 +43,8 @@ angular.module('Directives').directive('input', function($timeout){
             });
 
         }
-    };
-});
+    }
+};
+
+angular.module('Directives').directive('input', showValidationFormDirective);
+angular.module('Directives').directive('textarea', showValidationFormDirective);
