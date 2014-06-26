@@ -80,7 +80,16 @@
                     </div>
                     <div ng-show="param.type === 'regexp'">
                         <label for="">Enter your regular expresison between slashes and add the flags if neccessary</label>
-                        <input type="text" class="form-control" ng-model="param.value">
+                        <input
+                            placeholder="/[a-z]+/i"
+                            name="paramTypeRegexp"
+                            type="text" 
+                            class="form-control" 
+                            ng-model="param.value"
+                            ng-required="true"
+                        >
+
+                        <form-validation-messages controller="createServiceForm.paramTypeRegexp"></form-validation-messages>
                     </div>
                 </div>
             </div>
