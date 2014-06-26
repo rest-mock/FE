@@ -10,7 +10,7 @@ angular.module('Services').factory('CONFIG', function () {
             SCENARIOS: {
                 END_POINT: DOMAIN + '/services/:serviceId/scenarios',
                 PARAMS: {
-                    serviceId: '@'
+                    serviceId: '='
                 }
             },
             SERVICES: {
