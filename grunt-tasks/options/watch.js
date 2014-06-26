@@ -13,10 +13,10 @@ module.exports = function(grunt) {
         },
         css: {
             files: [
-                '<%= grunt.config.app %>/scripts/{,**/}*.scss',
+                '<%= grunt.config.app %>/styles/{,*/,**/}*.scss',
             ],
             livereload: true,
-            tasks: ['compass:dev', 'csslint']
+            tasks: ['compass:dev']
         },
         html: {
             files: [
