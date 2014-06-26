@@ -28,7 +28,7 @@ angular.module('Directives').directive('validatePath', function ($timeout) {
                     if( value.match(/\s/) ){ validPath = false; }
 
                     // (2)
-                    if( validPath && value.match(/[^\w:-_\.\#\/+]/) ){ validPath = false; }
+                    if( validPath && !value.match(/^[\w:\-\?\_\.\#\/\+\=\&]+$/) ){ validPath = false; }
 
                     // (3)
                     if( validPath && value.match(/\:$/) ){ validPath = false; }
