@@ -7,7 +7,7 @@ angular.module('Directives').directive('validatePath', function ($timeout) {
         link: function(scope, elem, attrs, ctrl){
             if( !ctrl ){ return; }
 
-            elem.on('keyup', function(event){
+            elem.on('keyup', function(){
                 $timeout(function(){
                     var value = ctrl.$viewValue;
                     var validPath = true;
@@ -36,7 +36,7 @@ angular.module('Directives').directive('validatePath', function ($timeout) {
                     // (4)
                     // In order to validate this that every colon has a slash right before it, we will
                     // reverse the string and valdiate that every colon is followed by a slash
-                    var reverseValue = value.split("").reverse().join("");
+                    var reverseValue = value.split('').reverse().join('');
                     if( validPath && reverseValue.match(/(:[^\/])/) ){ validPath = false; }
 
                     // (5)
