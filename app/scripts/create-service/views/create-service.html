@@ -37,14 +37,16 @@
                 </div>
                 <div class="btn-group selection-group">
                     <div>
-                        <input type="radio" value="static" ng-model="service.mode" id="serviceModeStatic" name="serviceMode" ng-disabled="paramsInPath">
+                        <input ng-required="true" type="radio" value="static" ng-model="service.mode" id="serviceModeStatic" name="serviceMode" ng-disabled="paramsInPath">
                         <label class="btn btn-default" for="serviceModeStatic">Static</label>
                     </div>
                     <div>
-                        <input type="radio" value="dynamin" ng-model="service.mode" id="serviceModeDynamin" ng-checked="paramsInPath" name="serviceMode">
+                        <input ng-required="true" type="radio" value="dynamin" ng-model="service.mode" id="serviceModeDynamin" ng-checked="paramsInPath" name="serviceMode">
                         <label class="btn btn-default" for="serviceModeDynamin">Dynamic</label>
                     </div>
                 </div>
+
+                <form-validation-messages controller="createServiceForm.serviceMode"></form-validation-messages>
 
                 <div class="bs-callout bs-callout-info" ng-show="paramsInPath">
                     <span>The method has been selected as <i>dynamic</i> since the path has variables. If you want to change it to <i>static</i>, remove the variables from the path.</span>
@@ -60,19 +62,19 @@
                     <p>{{param.key}}</p>
                     <div class="btn-group selection-group">
                         <div>
-                            <input type="radio" value="numeric" ng-model="param.type" id="paramTypeNumeric{{$index}}" name="paramType{{$index}}">
+                            <input ng-required="true" type="radio" value="numeric" ng-model="param.type" id="paramTypeNumeric{{$index}}" name="paramType{{$index}}">
                             <label class="btn btn-default" for="paramTypeNumeric{{$index}}">Numeric</label>
                         </div>
                         <div>
-                            <input type="radio" value="letter" ng-model="param.type" id="paramTypeLetter{{$index}}" name="paramType{{$index}}">
+                            <input ng-required="true" type="radio" value="letter" ng-model="param.type" id="paramTypeLetter{{$index}}" name="paramType{{$index}}">
                             <label class="btn btn-default" for="paramTypeLetter{{$index}}">Letter</label>
                         </div>
                         <div>
-                            <input type="radio" value="alpha" ng-model="param.type" id="paramTypeAlpha{{$index}}" name="paramType{{$index}}">
+                            <input ng-required="true" type="radio" value="alpha" ng-model="param.type" id="paramTypeAlpha{{$index}}" name="paramType{{$index}}">
                             <label class="btn btn-default" for="paramTypeAlpha{{$index}}">Alpha</label>
                         </div>
                         <div>
-                            <input type="radio" value="regexp" ng-model="param.type" id="paramTypeRegexp{{$index}}" name="paramType{{$index}}">
+                            <input ng-required="true" type="radio" value="regexp" ng-model="param.type" id="paramTypeRegexp{{$index}}" name="paramType{{$index}}">
                             <label class="btn btn-default" for="paramTypeRegexp{{$index}}">RegExp</label>
                         </div>
                     </div>

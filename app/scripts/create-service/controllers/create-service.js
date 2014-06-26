@@ -45,7 +45,6 @@ angular.module('CreateService').controller('CreateServiceCtrl', function ($scope
 
     $scope.saveService = function(){
         if( !$scope.service.name || !$scope.service.path || !$scope.service.mode ){
-            window.alert('Complete all fields');
             return;
         }
 
