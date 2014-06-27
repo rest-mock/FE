@@ -43,7 +43,7 @@ var showValidationFormDirective = function($timeout){
             });
 
         }
-    }
+    };
 };
 
 angular.module('Directives').directive('input', showValidationFormDirective);
