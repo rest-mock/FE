@@ -86,7 +86,7 @@
                             type="text" 
                             class="form-control" 
                             ng-model="param.value"
-                            ng-required="true"
+                            ng-required="param.type === 'regexp'"
                         >
 
                         <form-validation-messages controller="createServiceForm.paramTypeRegexp"></form-validation-messages>
