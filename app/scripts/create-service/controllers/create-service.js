@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('CreateService').controller('CreateServiceCtrl', function ($scope, $timeout, $routeParams, $location, ServicesResource, PathManagerFactory) {
+angular.module('CreateService').controller('CreateServiceCtrl', function ($rootScope, $scope, $timeout, $routeParams, $location, ServicesResource, PathManagerFactory) {
     $scope.service = {
         pathParams: []
     };
@@ -57,6 +57,9 @@ angular.module('CreateService').controller('CreateServiceCtrl', function ($scope
             $scope.service = {};
 
             $location.path('/service/'+response.id);
+            $rootScope.$broadcast('serviceAdded', {
+                service: response
+            });
         }, function(response){
             console.log('error', response);
         });

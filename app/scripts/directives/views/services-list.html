@@ -1,6 +1,6 @@
 <div class="services-list services-list-directive">
     <ul class="services-list-container">
-        <li ng-repeat="service in services">
+        <li ng-repeat="service in services | orderBy:servicesListOrder">
             <a href="#/service/{{service.id}}">{{service.name}}</a>
         </li>
         <li>
