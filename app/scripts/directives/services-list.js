@@ -4,6 +4,7 @@ angular.module('Directives').directive('servicesList', function ($location) {
     return {
         restrict: 'E',
         templateUrl: 'scripts/directives/views/services-list.html',
+        replace: true,
         link: function(){
 
         },

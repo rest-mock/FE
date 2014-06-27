@@ -1,13 +1,27 @@
+$items-list-main-color: rgb(250, 162, 5);
+
 .items-list{
+    height: 100%;
+    ul{
+        padding: 0;
+        margin: 0;
+        min-height: 100%;
+
+        background: lighten($items-list-main-color, 40%);
+    }
+
     li{
         position: relative;
+
         list-style: none;
+        cursor: pointer;
+        padding: 1em;
+        text-align: right;
 
         a{
             @include transition(color, $smooth-transition-duration);
 
             color: #999;
-            cursor: pointer;
             text-decoration: none;
         }
 
@@ -18,18 +32,20 @@
         }
 
         &.active{
+            background: lighten($items-list-main-color, 30%);
+
             a{
-                color: rgb(250, 162, 5);
+                color: #333;
             }
 
             &:after{
                 content: "";
                 position: absolute;
-                left: -8px;
+                right: 0;
                 top: 0;
                 height: 100%;
                 width: 4px;
-                background: rgb(250, 162, 5);
+                background: $items-list-main-color;
                 opacity: 1;
             }
         }
