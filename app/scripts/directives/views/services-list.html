@@ -1,10 +1,10 @@
-<div class="services-list services-list-directive">
+<nav class="items-list vertical-items-list services-list services-list-directive">
     <ul class="services-list-container">
-        <li ng-repeat="service in services | orderBy:servicesListOrder">
-            <a href="#/service/{{service.id}}">{{service.name}}</a>
+        <li ng-repeat="service in services | orderBy:servicesListOrder" ng-class="{'active': service.active}">
+            <a ng-click="changeActiveService(service)">{{service.name}}</a>
         </li>
-        <li>
-            <p><a href="#/create-service">Create service</a></p>
+        <li ng-class="{'active': createScenarioActive}">
+            <p><a ng-click="goCreateService()">Create service</a></p>
         </li>
     </ul>
-</div>
+</nav>
