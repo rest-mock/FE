@@ -2,6 +2,20 @@
     <div ng-if="service.id">
         <h1>{{service.name}}</h1>
 
+        <h3>Details</h3>
+        <ul>
+            <li><b>Mode: </b>{{service.mode}}</li>
+            <li><b>Path: </b>{{service.path}}</li>
+            <li><b>Path params</b>
+                <ul>
+                    <li ng-repeat="pathParam in service.pathParams">
+                        <b>{{pathParam.key}}: </b>{{pathParam.type}}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h1>Responses</h1>
         <div>
             <nav class="items-list horizontal-items-list">
                 <div ng-repeat="(method, scenarios) in service.responses" ng-click="changeCurrentMethod('{{method}}')" class="items-list-item" ng-class="{'active': currentMethod === method}" ng-style="{'width': 100/service.methodsCount + '%'}">

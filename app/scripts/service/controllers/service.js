@@ -10,6 +10,8 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
     $scope.service = {
         id: currentService.id,
         name: currentService.name,
+        mode: currentService.mode,
+        path: currentService.path,
         methodsCount: _.size(currentService.responses), 
         responses: currentService.responses,
         pathParams: currentService.params
