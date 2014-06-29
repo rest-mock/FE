@@ -1,18 +1,18 @@
-<div>
-    Service details
+<div ng-if="service.id">
+    <h1>{{service.name}}</h1>
 
-    <p ng-if="service.name"><b>Name:</b> {{service.name}}</p>
-
-    <div ng-if="service.id">
-
-        <nav>
-            <div ng-repeat="(method, scenarios) in service.responses" ng-click="changeCurrentMethod('{{method}}')">
-                <h3>{{method | uppercase}}</h3>
-                <ul ng-show="currentMethod === method">
-                    <li ng-repeat="scenario in scenarios">{{scenario.name}}</li>
-                </ul>
+    <div>
+        <nav class="items-list horizontal-items-list">
+            <div ng-repeat="(method, scenarios) in service.responses" ng-click="changeCurrentMethod('{{method}}')" class="items-list-item" ng-class="{'active': currentMethod === method}" ng-style="{'width': 100/service.methodsCount + '%'}">
+                <span>{{method | uppercase}}</span>
             </div>
         </nav>
+
+        <div ng-show="currentMethod">
+            <ul>
+                <li ng-repeat="scenario in service.responses[currentMethod]">{{scenario.name}}</li>
+            </ul>
+        </div>
 
         <div>
             <h1>Add a Scenario</h1>
@@ -76,3 +76,5 @@
 
     </div>
 </div>
+
+<div ng-if="!service.id">This service doesn't exist.</div>

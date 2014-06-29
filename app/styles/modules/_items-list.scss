@@ -1,22 +1,20 @@
 $items-list-main-color: rgb(250, 162, 5);
 
 .items-list{
-    height: 100%;
-    ul{
-        padding: 0;
-        margin: 0;
-        min-height: 100%;
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
 
-        background: lighten($items-list-main-color, 40%);
-    }
+    background: lighten($items-list-main-color, 40%);
 
-    li{
+    .items-list-item{
         position: relative;
 
         list-style: none;
         cursor: pointer;
         padding: 1em;
-        text-align: right;
+
+        margin: 0;
 
         a{
             @include transition(color, $smooth-transition-duration);
@@ -41,12 +39,45 @@ $items-list-main-color: rgb(250, 162, 5);
             &:after{
                 content: "";
                 position: absolute;
-                right: 0;
-                top: 0;
-                height: 100%;
-                width: 4px;
                 background: $items-list-main-color;
                 opacity: 1;
+            }
+        }
+    }
+
+    &.vertical-items-list{
+        .items-list-item{
+            text-align: right;
+
+            &.active{
+                &:after{
+                    right: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 4px;
+                }
+            }
+        }
+    }
+
+    &.horizontal-items-list{
+        // @include display-box;
+        // @include box-orient(horizontal);
+        // @include box-align(start);
+        
+        // justify-content: space-between;
+
+        .items-list-item{
+            display: inline-block;
+            text-align: center;
+
+            &.active{
+                &:after{
+                    left: 0;
+                    bottom: 0;
+                    height: 4px;
+                    width: 100%;
+                }
             }
         }
     }
