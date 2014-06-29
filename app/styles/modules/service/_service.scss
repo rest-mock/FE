@@ -1,0 +1,10 @@
+.service-feature{
+    .scenarios-list{
+        background: $items-list-main-color;
+
+        .scenarios-list-item{
+            text-align:left;
+            border-bottom: 1px solid lighten($items-list-main-color, 40%);
+        }
+    }
+}
