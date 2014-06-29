@@ -19,7 +19,7 @@ angular.module('RESTMock', _mainModules )
     .config( function($routeProvider){
         //redirect any invalid hash to /home
         $routeProvider.otherwise({
-            redirectTo: '/'
+            redirectTo: '/create-service'
         });
 
         var routes = [];
