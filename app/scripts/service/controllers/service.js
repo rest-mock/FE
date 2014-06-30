@@ -25,6 +25,11 @@ angular.module('Service').controller('ServiceCtrl', function ($rootScope, $scope
     $scope.currentMethod = $routeParams.method;
     $scope.newScenario = createNewScenarioObject();
 
+    $scope.updateScope = function(response){
+        console.log('%cnewService','background: orange;');
+        console.log(response);
+    };
+
     $scope.changeCurrentMethod = function(method){
         // var newValue = null;
         // if( $location.search().method !== method ){

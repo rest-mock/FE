@@ -42,7 +42,7 @@ angular.module('Directives').directive('servicesList', function ($location) {
                 console.log('error', response);
             });
 
-            $rootScope.$on('serviceAdded', function(e, params){
+            $rootScope.$on('serviceDetailsSaved', function(e, params){
                 $scope.services.push(params.service);
             });
         }

@@ -44,6 +44,10 @@
     {
       "name": "Validate json",
       "value": "validate-json"
+    },
+    {
+      "name": "Service details form",
+      "value": "service-details-form"
     }
   ],
   "service": [],
